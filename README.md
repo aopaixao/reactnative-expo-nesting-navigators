@@ -21,6 +21,7 @@ npx expo start
 * Navegação pública/privada a partir da checagem da autenticação do usuário (com API de Contexto)
 * Navegação forçada para a screen inicial do componente de navegação drawer (acessado via bottom tabs)
 * Utilização de item customizado (botão SignOut) como screen do componente de navegação drawer
+* useFocusEffect: hook para execução de tarefas quando uma screen for "focada" (quando o usuário entrar na mesma)
 
 ## Sobre
 
