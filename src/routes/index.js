@@ -17,6 +17,7 @@ import Help from '../pages/Help';
 import Invite from '../pages/Invite';
 import { Loading } from '../components/Loading';
 import { useAuth } from '../context/AuthContext';
+import { TouchableOpacity } from 'react-native';
  
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -66,16 +67,21 @@ const DrawerNav = () => {
   );
 }
 
-const TabNav = () => {
+const TabNav = ({navigation}) => {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Feed" component={Feed} />
+      <Tab.Screen 
+        name="Feed" 
+        component={Feed} />
       <Tab.Screen name="Invite" component={Invite} />
       <Tab.Screen name="ProfileDrawer" 
         component={DrawerNav} 
         options={{
-          title: 'Profile'
+          title: 'Profile',
+          tabBarButton: props => ( 
+            <TouchableOpacity {...props} onPress={() => navigation.navigate('Profile')} />
+          ),
         }}
       />
     </Tab.Navigator>
