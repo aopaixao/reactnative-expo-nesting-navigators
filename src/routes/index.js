@@ -1,4 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, CommonActions, StackActions, DrawerActions   } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {
   createDrawerNavigator,
@@ -80,7 +80,13 @@ const TabNav = ({navigation}) => {
         options={{
           title: 'Profile',
           tabBarButton: props => ( 
-            <TouchableOpacity {...props} onPress={() => navigation.navigate('Profile')} />
+            <TouchableOpacity 
+              {...props} 
+              onPress={
+                () => 
+                navigation.navigate('ProfileDrawer', {screen: 'Profile'})
+              } 
+            />
           ),
         }}
       />
